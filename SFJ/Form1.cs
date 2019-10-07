@@ -17,6 +17,24 @@ namespace SFJ
             InitializeComponent();
         }
 
+        struct Processo
+        {
+            public int id;
+            public int tchegada;
+            public int texecucao;
+            public int estado; //0 - não iniciado 1 - em espera 2 - execução 3 - terminou
+        }
+
+        Random aleatorio = new Random();
+        Processo[] vecProcessos = new Processo[200];
+        int tSimulacao;
+        int tempoSaidaProcessador;
+        bool processadorVazio;
+
+        Processo processoNoProcessador;
+
+        Queue<Processo> filaProcessos = new Queue<Processo>();
+
         private void start_Click(object sender, EventArgs e)
         {
             tSimulacao = 0;
@@ -25,21 +43,25 @@ namespace SFJ
             for (int i = 0; i < 200; i++)
             {
                 vecProcessos[i].id = i;
-                vecProcessos[i].tchegada = aleatorio.Next(0, 5001);
+                vecProcessos[i].tchegada = aleatorio.Next(0, 2000);
                 vecProcessos[i].texecucao = aleatorio.Next(10, 50);
                 vecProcessos[i].estado = 0;
+                list_S.Items.Add(vecProcessos[i].id);
+                count1.Text = list_S.Items.Count.ToString();
             }
         }
-        private void timer1_Tick(object sender, EventArgs e)
+
+        private void timer1_Tick_1(object sender, EventArgs e)
         {
             tSimulacao++;
-            label2.Text = "" + tSimulacao;
+            timer.Text = "" + tSimulacao;
 
             for (int i = 0; i < 200; i++) //verificar se chegou algum processo
             {
                 if (tSimulacao == vecProcessos[i].tchegada) //coloca o processo na fila de espera
                 {
-                    label1.Text += "\nProcesso " + vecProcessos[i].id + " está em espera";
+                    list_W.Items.Add(vecProcessos[i].id);
+                    count2.Text = list_W.Items.Count.ToString();
                     filaProcessos.Enqueue(vecProcessos[i]);
                     vecProcessos[i].estado = 1;
                 }
@@ -47,12 +69,14 @@ namespace SFJ
 
             if (processadorVazio) //se o processador estiver vazio executa o processo
             {
+                
                 if (filaProcessos.Count != 0)
                 {
                     processoNoProcessador = filaProcessos.Dequeue();
                     processadorVazio = false;
                     processoNoProcessador.estado = 2;
-                    label3.Text = "Processo no processador -> " + processoNoProcessador.id;
+                    label_P.Text = "Processo no processador -> " + processoNoProcessador.id;
+                    cputime.Text = " " + processoNoProcessador.texecucao;
                     tempoSaidaProcessador = tSimulacao + processoNoProcessador.texecucao; //Somar o tempo comutacao
                 }
             }
@@ -61,12 +85,11 @@ namespace SFJ
             {
                 processadorVazio = true;
                 processoNoProcessador.estado = 3;
-                label4.Text += "\n Terminou " + processoNoProcessador.id;
-                label3.Text = "O processador está vazio";
+                list_E.Items.Add(processoNoProcessador.id);
+                label_P.Text = "O processador está vazio";
+                count3.Text = list_E.Items.Count.ToString();
             }
 
         }
-
-
     }
 }

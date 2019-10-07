@@ -1,0 +1,9 @@
+D:\#Projects\Programming\Project\HiddenLab\SFJ\bin\Debug\SFJ.exe.config
+D:\#Projects\Programming\Project\HiddenLab\SFJ\bin\Debug\SFJ.exe
+D:\#Projects\Programming\Project\HiddenLab\SFJ\bin\Debug\SFJ.pdb
+D:\#Projects\Programming\Project\HiddenLab\SFJ\obj\Debug\SFJ.csprojAssemblyReference.cache
+D:\#Projects\Programming\Project\HiddenLab\SFJ\obj\Debug\SFJ.Form1.resources
+D:\#Projects\Programming\Project\HiddenLab\SFJ\obj\Debug\SFJ.Properties.Resources.resources
+D:\#Projects\Programming\Project\HiddenLab\SFJ\obj\Debug\SFJ.csproj.GenerateResource.cache
+D:\#Projects\Programming\Project\HiddenLab\SFJ\obj\Debug\SFJ.exe
+D:\#Projects\Programming\Project\HiddenLab\SFJ\obj\Debug\SFJ.pdb
