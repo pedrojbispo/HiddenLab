@@ -69,7 +69,6 @@ namespace SFJ
 
             if (processadorVazio) //se o processador estiver vazio executa o processo
             {
-                
                 if (filaProcessos.Count != 0)
                 {
                     processoNoProcessador = filaProcessos.Dequeue();
@@ -78,6 +77,11 @@ namespace SFJ
                     label_P.Text = "Processo no processador -> " + processoNoProcessador.id;
                     cputime.Text = " " + processoNoProcessador.texecucao;
                     tempoSaidaProcessador = tSimulacao + processoNoProcessador.texecucao; //Somar o tempo comutacao
+                }
+                if(processoNoProcessador.id == vecProcessos[0].id) 
+                {
+                    list_W.Items.Remove(vecProcessos[0].id);
+                    list_W.Update();
                 }
             }
 
