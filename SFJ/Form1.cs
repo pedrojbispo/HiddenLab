@@ -74,14 +74,9 @@ namespace SFJ
                     processoNoProcessador = filaProcessos.Dequeue();
                     processadorVazio = false;
                     processoNoProcessador.estado = 2;
-                    label_P.Text = "Processo no processador -> " + processoNoProcessador.id;
-                    cputime.Text = " " + processoNoProcessador.texecucao;
+                    label_P.Text = processoNoProcessador.id + " ";
+                    cputime.Text = processoNoProcessador.texecucao + " ms";
                     tempoSaidaProcessador = tSimulacao + processoNoProcessador.texecucao; //Somar o tempo comutacao
-                }
-                if(processoNoProcessador.id == vecProcessos[0].id) 
-                {
-                    list_W.Items.Remove(vecProcessos[0].id);
-                    list_W.Update();
                 }
             }
 
@@ -90,10 +85,20 @@ namespace SFJ
                 processadorVazio = true;
                 processoNoProcessador.estado = 3;
                 list_E.Items.Add(processoNoProcessador.id);
-                label_P.Text = "O processador está vazio";
+                label_P.Text = "Vazio";
                 count3.Text = list_E.Items.Count.ToString();
             }
 
+        }
+
+        private void reset_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
+
+        private void kill_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

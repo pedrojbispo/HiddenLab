@@ -7,3 +7,12 @@ D:\#Projects\Programming\Project\HiddenLab\SFJ\obj\Debug\SFJ.Properties.Resource
 D:\#Projects\Programming\Project\HiddenLab\SFJ\obj\Debug\SFJ.csproj.GenerateResource.cache
 D:\#Projects\Programming\Project\HiddenLab\SFJ\obj\Debug\SFJ.exe
 D:\#Projects\Programming\Project\HiddenLab\SFJ\obj\Debug\SFJ.pdb
+C:\Users\pedro\Documents\GitHub\HiddenLab\SFJ\bin\Debug\SFJ.exe.config
+C:\Users\pedro\Documents\GitHub\HiddenLab\SFJ\bin\Debug\SFJ.exe
+C:\Users\pedro\Documents\GitHub\HiddenLab\SFJ\bin\Debug\SFJ.pdb
+C:\Users\pedro\Documents\GitHub\HiddenLab\SFJ\obj\Debug\SFJ.csprojAssemblyReference.cache
+C:\Users\pedro\Documents\GitHub\HiddenLab\SFJ\obj\Debug\SFJ.Form1.resources
+C:\Users\pedro\Documents\GitHub\HiddenLab\SFJ\obj\Debug\SFJ.Properties.Resources.resources
+C:\Users\pedro\Documents\GitHub\HiddenLab\SFJ\obj\Debug\SFJ.csproj.GenerateResource.cache
+C:\Users\pedro\Documents\GitHub\HiddenLab\SFJ\obj\Debug\SFJ.exe
+C:\Users\pedro\Documents\GitHub\HiddenLab\SFJ\obj\Debug\SFJ.pdb
