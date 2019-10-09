@@ -260,11 +260,19 @@
             // richTextBox1
             // 
             this.richTextBox1.BackColor = System.Drawing.SystemColors.Info;
+            this.richTextBox1.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            this.richTextBox1.DetectUrls = false;
+            this.richTextBox1.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.richTextBox1.Location = new System.Drawing.Point(412, 149);
+            this.richTextBox1.Multiline = false;
             this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
+            this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.richTextBox1.ShortcutsEnabled = false;
             this.richTextBox1.Size = new System.Drawing.Size(187, 80);
             this.richTextBox1.TabIndex = 19;
             this.richTextBox1.Text = "";
+            this.richTextBox1.WordWrap = false;
             // 
             // label7
             // 

@@ -33,7 +33,7 @@ namespace SFJ
 
         Processo processoNoProcessador;
 
-        Queue<Processo> filaProcessos = new Queue<Processo>();
+        //Queue<Processo> filaProcessos = new Queue<Processo>();
 
         private void start_Click(object sender, EventArgs e)
         {
@@ -62,24 +62,37 @@ namespace SFJ
                 {
                     list_W.Items.Add(vecProcessos[i].id);
                     count2.Text = list_W.Items.Count.ToString();
-                    filaProcessos.Enqueue(vecProcessos[i]);
+                    //filaProcessos.Enqueue(vecProcessos[i]);
                     vecProcessos[i].estado = 1;
                 }
             }
-
+            int max= list_W.Items.Count;
+            for(int i = 0; i < max; i++)
+            {
+                if (vecProcessos[i].texecucao < 10)
+                {
+                    vecProcessos[i].id = vecProcessos[0].id;
+                }
+            }
             if (processadorVazio) //se o processador estiver vazio executa o processo
             {
-                if (filaProcessos.Count != 0)
+                if (list_W.Items.Count != 0)
                 {
-                    processoNoProcessador = filaProcessos.Dequeue();
+                    
+                    //processoNoProcessador = filaProcessos.Dequeue();
+                    processoNoProcessador = 0;
                     processadorVazio = false;
                     processoNoProcessador.estado = 2;
                     label_P.Text = processoNoProcessador.id + " ";
                     cputime.Text = processoNoProcessador.texecucao + " ms";
                     tempoSaidaProcessador = tSimulacao + processoNoProcessador.texecucao; //Somar o tempo comutacao
                 }
+               // if (vecProcessos[0].id ==)
+               // {
+                   // list_W.Items.Remove(vecProcessos[0].id);
+               // }
             }
-
+           
             if (tSimulacao == tempoSaidaProcessador) //verifica se algum processo está a sair do processador
             {
                 processadorVazio = true;
