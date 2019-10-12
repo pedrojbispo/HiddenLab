@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SFJ
@@ -33,7 +28,7 @@ namespace SFJ
 
         Processo processoNoProcessador;
 
-        //Queue<Processo> filaProcessos = new Queue<Processo>();
+        List<Processo> filaProcessos = new List<Processo>();
 
         private void start_Click(object sender, EventArgs e)
         {
@@ -48,6 +43,8 @@ namespace SFJ
                 vecProcessos[i].estado = 0;
                 list_S.Items.Add(vecProcessos[i].id);
                 count1.Text = list_S.Items.Count.ToString();
+                stop.Enabled = true;
+                start.Enabled = false;
             }
         }
 
@@ -62,35 +59,38 @@ namespace SFJ
                 {
                     list_W.Items.Add(vecProcessos[i].id);
                     count2.Text = list_W.Items.Count.ToString();
-                    //filaProcessos.Enqueue(vecProcessos[i]);
+                    int posicaoProcessoMaisProximo = filaProcessos.FindLastIndex(x => x.texecucao <= vecProcessos[i].texecucao); // Descobrir processo com o tempo de execucao menor mais proximo
+                    if(posicaoProcessoMaisProximo != -1 && filaProcessos.ElementAt(posicaoProcessoMaisProximo).texecucao == vecProcessos[i].texecucao) // Se o processo encontrado tem o mesmo texecucao
+                    {
+                        if(filaProcessos.ElementAt(posicaoProcessoMaisProximo).tchegada <= vecProcessos[i].tchegada) // Dos dois que tem o mesmo texecucao descobrir o que tem menor tchegada
+                        {
+                            filaProcessos.Insert(posicaoProcessoMaisProximo + 1, vecProcessos[i]); // Se o processo que ja esta na fila tem menor entao o novo fica na posicao seguinte
+                        } else
+                        {
+                            filaProcessos.Insert(posicaoProcessoMaisProximo, vecProcessos[i]); // Se o processo que ja esta na fila tem maior texecucao entao o novo fica na sua posicao e o antigo anda uma para frente
+                        }
+                    } else
+                    {
+                        filaProcessos.Insert(posicaoProcessoMaisProximo + 1, vecProcessos[i]); // Adiciona novo processo no final da lista
+                    }
                     vecProcessos[i].estado = 1;
-                }
-            }
-            int max= list_W.Items.Count;
-            for(int i = 0; i < max; i++)
-            {
-                if (vecProcessos[i].texecucao < 10)
-                {
-                    vecProcessos[i].id = vecProcessos[0].id;
                 }
             }
             if (processadorVazio) //se o processador estiver vazio executa o processo
             {
                 if (list_W.Items.Count != 0)
                 {
-                    
-                    //processoNoProcessador = filaProcessos.Dequeue();
-                    processoNoProcessador = 0;
+                    processoNoProcessador = filaProcessos.ElementAt(0); // Descobrir o processo no topo da lista
+                    filaProcessos.RemoveAt(0); // Remover o processo do topo da lsita
+                    list_W.Items.Remove(processoNoProcessador.id); // Remover o id da lista de espera
+                    count2.Text = list_W.Items.Count.ToString();
                     processadorVazio = false;
+                    processoNoProcessador.estado = 2;
                     processoNoProcessador.estado = 2;
                     label_P.Text = processoNoProcessador.id + " ";
                     cputime.Text = processoNoProcessador.texecucao + " ms";
                     tempoSaidaProcessador = tSimulacao + processoNoProcessador.texecucao; //Somar o tempo comutacao
                 }
-               // if (vecProcessos[0].id ==)
-               // {
-                   // list_W.Items.Remove(vecProcessos[0].id);
-               // }
             }
            
             if (tSimulacao == tempoSaidaProcessador) //verifica se algum processo está a sair do processador
@@ -101,7 +101,11 @@ namespace SFJ
                 label_P.Text = "Vazio";
                 count3.Text = list_E.Items.Count.ToString();
             }
-
+            if(list_E.Items.Count == 200)
+            {
+                timer1.Enabled = false;
+                stop.Enabled=false;
+            }
         }
 
         private void reset_Click(object sender, EventArgs e)
@@ -112,6 +116,53 @@ namespace SFJ
         private void kill_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void stop_Click(object sender, EventArgs e)
+        {
+            if (timer1.Enabled)
+            {
+                timer1.Enabled = false;
+                stop.Text = "Unpause";
+            }
+            else
+            {
+                timer1.Enabled = true;
+                stop.Text = "Pause";
+            }
+        }
+
+        private void list_S_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (list_S.SelectedIndex != -1)
+            {
+                changeSelectedInfo(list_S.Items[list_S.SelectedIndex].ToString());
+            }
+        }
+
+        private void changeSelectedInfo(String selectedString)
+        {
+            int selectedInt = Convert.ToInt32(selectedString);
+            Processo selected = vecProcessos[selectedInt];
+            label_id.Text = selected.id+"";
+            label_exec.Text = selected.texecucao+"";
+            label_chegada.Text = selected.tchegada+"";
+        }
+
+        private void list_W_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (list_W.SelectedIndex != -1)
+            {
+                changeSelectedInfo(list_W.Items[list_W.SelectedIndex].ToString());
+            }
+        }
+
+        private void list_E_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (list_E.SelectedIndex != -1)
+            {
+                changeSelectedInfo(list_E.Items[list_E.SelectedIndex].ToString());
+            }
         }
     }
 }
