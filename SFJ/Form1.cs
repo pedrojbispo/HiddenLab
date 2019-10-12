@@ -65,7 +65,8 @@ namespace SFJ
                         if(filaProcessos.ElementAt(posicaoProcessoMaisProximo).tchegada <= vecProcessos[i].tchegada) // Dos dois que tem o mesmo texecucao descobrir o que tem menor tchegada
                         {
                             filaProcessos.Insert(posicaoProcessoMaisProximo + 1, vecProcessos[i]); // Se o processo que ja esta na fila tem menor entao o novo fica na posicao seguinte
-                        } else
+                        } 
+                        else
                         {
                             filaProcessos.Insert(posicaoProcessoMaisProximo, vecProcessos[i]); // Se o processo que ja esta na fila tem maior texecucao entao o novo fica na sua posicao e o antigo anda uma para frente
                         }
@@ -81,7 +82,7 @@ namespace SFJ
                 if (list_W.Items.Count != 0)
                 {
                     processoNoProcessador = filaProcessos.ElementAt(0); // Descobrir o processo no topo da lista
-                    filaProcessos.RemoveAt(0); // Remover o processo do topo da lsita
+                    filaProcessos.RemoveAt(0); // Remover o processo do topo da lista
                     list_W.Items.Remove(processoNoProcessador.id); // Remover o id da lista de espera
                     count2.Text = list_W.Items.Count.ToString();
                     processadorVazio = false;
