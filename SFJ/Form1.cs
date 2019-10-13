@@ -70,7 +70,8 @@ namespace SFJ
                         {
                             filaProcessos.Insert(posicaoProcessoMaisProximo, vecProcessos[i]); // Se o processo que ja esta na fila tem maior texecucao entao o novo fica na sua posicao e o antigo anda uma para frente
                         }
-                    } else
+                    }
+                    else
                     {
                         filaProcessos.Insert(posicaoProcessoMaisProximo + 1, vecProcessos[i]); // Adiciona novo processo no final da lista
                     }
@@ -79,14 +80,13 @@ namespace SFJ
             }
             if (processadorVazio) //se o processador estiver vazio executa o processo
             {
-                if (list_W.Items.Count != 0)
+                if (filaProcessos.Count != 0)
                 {
                     processoNoProcessador = filaProcessos.ElementAt(0); // Descobrir o processo no topo da lista
                     filaProcessos.RemoveAt(0); // Remover o processo do topo da lista
                     list_W.Items.Remove(processoNoProcessador.id); // Remover o id da lista de espera
                     count2.Text = list_W.Items.Count.ToString();
                     processadorVazio = false;
-                    processoNoProcessador.estado = 2;
                     processoNoProcessador.estado = 2;
                     label_P.Text = processoNoProcessador.id + " ";
                     cputime.Text = processoNoProcessador.texecucao + " ms";
