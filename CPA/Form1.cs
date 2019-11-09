@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace CPA
+namespace SFJ
 {
     public partial class Form1 : Form
     {
@@ -28,6 +28,7 @@ namespace CPA
         int tempoSaidaProcessador;
         bool processadorVazio;
         int buffer;
+        int buffer_remove;
         int tBuffer;
 
         Processo processoNoProcessador;
@@ -38,18 +39,22 @@ namespace CPA
         {
             tSimulacao = 0;
             tprocesso = 0;
+            tBuffer = 0;
             buffer = 0;
+            buffer_remove = buffer;
+            label_buffer.Text = buffer_remove + "";
+            debug_log.Text += "Start button Pressed\r\n";
             timer1.Enabled = true;
             timer2.Enabled = true;
             timer3.Enabled = true;
             processadorVazio = true;
-            label_buffer.Text = buffer + "";
+
             for (int i = 0; i < 200; i++)
             {
                 vecProcessos[i].id = i;
-                vecProcessos[i].tchegada = aleatorio.Next(0, 2000);
+                vecProcessos[i].tchegada = aleatorio.Next(10, 2000);
                 vecProcessos[i].texecucao = aleatorio.Next(10, 50);
-                vecProcessos[i].thread = aleatorio.Next(1, 5);
+                vecProcessos[i].thread = aleatorio.Next(10, 25);
                 vecProcessos[i].estado = 0;
                 list_S.Items.Add(vecProcessos[i].id);
                 count1.Text = list_S.Items.Count.ToString();
@@ -62,11 +67,34 @@ namespace CPA
         {
             tSimulacao++;
             label_timer1.Text = tSimulacao + "";
+            if (buffer_remove < 0) // Buffer vazio, bloquear processos
+            {
+                timer1.Enabled = false;
+                timer3.Enabled = true;
+                buffer_remove = 0;
+                debug_log.Text += "Buffer depleted...Stoping Processes for Regen Buffer. Value: " + buffer_remove + "\r\n";
+            }
+            if (buffer_remove > 25)//buffer com 25 desbloquear processos
+            {
+                timer1.Enabled = true;
+            }
+            if (buffer_remove <= 25) // buffer igual ou inferior a 25 ativar buffer 
+            {
+                timer3.Enabled = true;
+                debug_log.Text += "Buffer depletion is immanent...Executing Failsafe. Value: " + buffer_remove + "\r\n";
+            }
+            if(buffer_remove == 50 || buffer_remove >50 && buffer_remove < 100) //debug
+            {
+                debug_log.Text += "Buffer is half-full. Value: " + buffer_remove + "\r\n";
+            }
         }
+        
+
         private void timer1_Tick_1(object sender, EventArgs e)
         {
             tprocesso++;
             label_timer2.Text = "" + tprocesso;
+
 
             for (int i = 0; i < 200; i++) //verificar se chegou algum processo
             {
@@ -82,9 +110,7 @@ namespace CPA
             {
                 if (filaProcessos.Count != 0)
                 {
-                    //processoNoProcessador = filaProcessos.ElementAt(0); // Descobrir o processo no topo da lista
                     processoNoProcessador = filaProcessos.Dequeue();
-                    //filaProcessos.RemoveAt(0); // Remover o processo do topo da lista
                     list_W.Items.Remove(processoNoProcessador.id); // Remover o id da lista de espera
                     count2.Text = list_W.Items.Count.ToString();
                     processadorVazio = false;
@@ -92,18 +118,17 @@ namespace CPA
                     label_P.Text = processoNoProcessador.id + " ";
                     cputime.Text = " " + processoNoProcessador.texecucao + " ";
                     thread.Text = processoNoProcessador.thread + "";
-                    int exebuffer;
-                    exebuffer = buffer - processoNoProcessador.thread;
                     tempoSaidaProcessador = tprocesso + processoNoProcessador.texecucao; //Somar o tempo comutacao
+                    buffer_remove -= processoNoProcessador.thread;
                 }
             }
-
-           
             if (tprocesso == tempoSaidaProcessador) //verifica se algum processo está a sair do processador
             {
                 processadorVazio = true;
                 processoNoProcessador.estado = 3;
                 list_E.Items.Add(processoNoProcessador.id);
+                label_buffer.Text = buffer_remove + "";
+                bufferbar.Value = buffer_remove;
                 label_P.Text = "Vazio";
                 count3.Text = list_E.Items.Count.ToString();
             }
@@ -112,34 +137,23 @@ namespace CPA
                 timer1.Enabled = false;
                 timer2.Enabled = false;
                 timer3.Enabled = false;
-                stop.Enabled=false;
+                stop.Enabled = false;
+                debug_log.Text += "Program Task Finished.\r\n";
             }
         }
         private void timer3_Tick(object sender, EventArgs e)
         {
             tBuffer++;
             label_timer3.Text = "" + tBuffer;
-            buffer = tBuffer;
-            label_buffer.Text = buffer + "";
-            if (buffer == 100)
+            buffer_remove++;
+            label_buffer.Text = buffer_remove + "";
+            bufferbar.Value = buffer_remove;
+            if (buffer_remove == 100) // buffer cheio desliga o timer
             {
                 timer3.Enabled = false;
+                debug_log.Text += "Buffer Full\r\n";
             }
-            if(buffer == 25)
-            {
-                timer3.Enabled = true;
-            }
-            if (buffer == 0)
-            {
-                timer1.Enabled = false;
-                if(buffer > 25)
-                {
-                    timer1.Enabled = true;
-                }
-            }
-
         }
-
         private void reset_Click(object sender, EventArgs e)
         {
             Application.Restart();
@@ -158,6 +172,7 @@ namespace CPA
                 timer2.Enabled = false;
                 timer3.Enabled = false;
                 stop.Text = "Unpause";
+                debug_log.Text += "Returning...\r\n";
             }
             else
             {
@@ -165,6 +180,7 @@ namespace CPA
                 timer2.Enabled = true;
                 timer3.Enabled = true;
                 stop.Text = "Pause";
+                debug_log.Text += "Program Paused.\r\n";
             }
         }
 
@@ -200,6 +216,11 @@ namespace CPA
             {
                 changeSelectedInfo(list_E.Items[list_E.SelectedIndex].ToString());
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            debug_log.Text += "Inizializing Program\r\n";
         }
     }
 }

@@ -74,6 +74,10 @@
             this.label_timer2 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label_timer3 = new System.Windows.Forms.Label();
+            this.bufferbar = new System.Windows.Forms.ProgressBar();
+            this.richTextBox5 = new System.Windows.Forms.RichTextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.debug_log = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -120,7 +124,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(485, 133);
+            this.label4.Location = new System.Drawing.Point(486, 103);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(80, 13);
@@ -156,7 +160,7 @@
             this.label_P.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.label_P.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label_P.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label_P.Location = new System.Drawing.Point(488, 165);
+            this.label_P.Location = new System.Drawing.Point(488, 145);
             this.label_P.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_P.Name = "label_P";
             this.label_P.Size = new System.Drawing.Size(65, 15);
@@ -179,7 +183,7 @@
             this.label_timer1.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.label_timer1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label_timer1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label_timer1.Location = new System.Drawing.Point(236, 57);
+            this.label_timer1.Location = new System.Drawing.Point(59, 57);
             this.label_timer1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_timer1.Name = "label_timer1";
             this.label_timer1.Size = new System.Drawing.Size(50, 15);
@@ -207,7 +211,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.SystemColors.Info;
-            this.label6.Location = new System.Drawing.Point(442, 192);
+            this.label6.Location = new System.Drawing.Point(442, 172);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(114, 13);
             this.label6.TabIndex = 12;
@@ -219,7 +223,7 @@
             this.cputime.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.cputime.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.cputime.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cputime.Location = new System.Drawing.Point(555, 192);
+            this.cputime.Location = new System.Drawing.Point(555, 172);
             this.cputime.Name = "cputime";
             this.cputime.Size = new System.Drawing.Size(46, 15);
             this.cputime.TabIndex = 13;
@@ -290,7 +294,7 @@
             this.richTextBox1.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.richTextBox1.DetectUrls = false;
             this.richTextBox1.ImeMode = System.Windows.Forms.ImeMode.Disable;
-            this.richTextBox1.Location = new System.Drawing.Point(426, 149);
+            this.richTextBox1.Location = new System.Drawing.Point(426, 129);
             this.richTextBox1.Multiline = false;
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
@@ -457,7 +461,7 @@
             this.thread.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.thread.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.thread.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.thread.Location = new System.Drawing.Point(545, 214);
+            this.thread.Location = new System.Drawing.Point(545, 194);
             this.thread.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.thread.Name = "thread";
             this.thread.Size = new System.Drawing.Size(65, 15);
@@ -469,7 +473,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.BackColor = System.Drawing.SystemColors.Info;
-            this.label15.Location = new System.Drawing.Point(432, 214);
+            this.label15.Location = new System.Drawing.Point(432, 194);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(113, 13);
             this.label15.TabIndex = 38;
@@ -481,13 +485,13 @@
             this.richTextBox3.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.richTextBox3.DetectUrls = false;
             this.richTextBox3.ImeMode = System.Windows.Forms.ImeMode.Disable;
-            this.richTextBox3.Location = new System.Drawing.Point(426, 261);
+            this.richTextBox3.Location = new System.Drawing.Point(426, 228);
             this.richTextBox3.Multiline = false;
             this.richTextBox3.Name = "richTextBox3";
             this.richTextBox3.ReadOnly = true;
             this.richTextBox3.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
             this.richTextBox3.ShortcutsEnabled = false;
-            this.richTextBox3.Size = new System.Drawing.Size(202, 53);
+            this.richTextBox3.Size = new System.Drawing.Size(203, 89);
             this.richTextBox3.TabIndex = 43;
             this.richTextBox3.Text = "";
             this.richTextBox3.WordWrap = false;
@@ -495,7 +499,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(509, 245);
+            this.label7.Location = new System.Drawing.Point(509, 224);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(35, 13);
@@ -508,13 +512,13 @@
             this.richTextBox4.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.richTextBox4.DetectUrls = false;
             this.richTextBox4.ImeMode = System.Windows.Forms.ImeMode.Disable;
-            this.richTextBox4.Location = new System.Drawing.Point(416, 139);
+            this.richTextBox4.Location = new System.Drawing.Point(416, 109);
             this.richTextBox4.Multiline = false;
             this.richTextBox4.Name = "richTextBox4";
             this.richTextBox4.ReadOnly = true;
             this.richTextBox4.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
             this.richTextBox4.ShortcutsEnabled = false;
-            this.richTextBox4.Size = new System.Drawing.Size(228, 188);
+            this.richTextBox4.Size = new System.Drawing.Size(228, 218);
             this.richTextBox4.TabIndex = 45;
             this.richTextBox4.Text = "";
             this.richTextBox4.WordWrap = false;
@@ -524,7 +528,7 @@
             this.label_buffer.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.label_buffer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label_buffer.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label_buffer.Location = new System.Drawing.Point(493, 272);
+            this.label_buffer.Location = new System.Drawing.Point(494, 246);
             this.label_buffer.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_buffer.Name = "label_buffer";
             this.label_buffer.Size = new System.Drawing.Size(65, 15);
@@ -555,7 +559,7 @@
             this.label_timer2.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.label_timer2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label_timer2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label_timer2.Location = new System.Drawing.Point(59, 57);
+            this.label_timer2.Location = new System.Drawing.Point(237, 57);
             this.label_timer2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_timer2.Name = "label_timer2";
             this.label_timer2.Size = new System.Drawing.Size(50, 15);
@@ -587,11 +591,60 @@
             this.label_timer3.Text = "timer3";
             this.label_timer3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // bufferbar
+            // 
+            this.bufferbar.Location = new System.Drawing.Point(445, 264);
+            this.bufferbar.Name = "bufferbar";
+            this.bufferbar.Size = new System.Drawing.Size(165, 23);
+            this.bufferbar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.bufferbar.TabIndex = 51;
+            // 
+            // richTextBox5
+            // 
+            this.richTextBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.richTextBox5.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            this.richTextBox5.DetectUrls = false;
+            this.richTextBox5.ImeMode = System.Windows.Forms.ImeMode.Disable;
+            this.richTextBox5.Location = new System.Drawing.Point(12, 518);
+            this.richTextBox5.Multiline = false;
+            this.richTextBox5.Name = "richTextBox5";
+            this.richTextBox5.ReadOnly = true;
+            this.richTextBox5.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.richTextBox5.ShortcutsEnabled = false;
+            this.richTextBox5.Size = new System.Drawing.Size(1532, 326);
+            this.richTextBox5.TabIndex = 52;
+            this.richTextBox5.Text = "";
+            this.richTextBox5.WordWrap = false;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(23, 513);
+            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(123, 13);
+            this.label17.TabIndex = 53;
+            this.label17.Text = "Debug Logs - Event Log";
+            // 
+            // debug_log
+            // 
+            this.debug_log.Location = new System.Drawing.Point(26, 543);
+            this.debug_log.Multiline = true;
+            this.debug_log.Name = "debug_log";
+            this.debug_log.ReadOnly = true;
+            this.debug_log.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.debug_log.Size = new System.Drawing.Size(1498, 287);
+            this.debug_log.TabIndex = 54;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(919, 537);
+            this.ClientSize = new System.Drawing.Size(1556, 856);
+            this.Controls.Add(this.debug_log);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.richTextBox5);
+            this.Controls.Add(this.bufferbar);
             this.Controls.Add(this.label_timer3);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label_timer2);
@@ -638,6 +691,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Shortest Job First - Escalonamento de Processos";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -690,6 +744,10 @@
         private System.Windows.Forms.Label label_timer2;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label_timer3;
+        private System.Windows.Forms.ProgressBar bufferbar;
+        private System.Windows.Forms.RichTextBox richTextBox5;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox debug_log;
     }
 }
 
