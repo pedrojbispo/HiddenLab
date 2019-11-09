@@ -1,9 +1,0 @@
-C:\Users\pedro\Desktop\CPA\bin\Debug\SFJ.exe.config
-C:\Users\pedro\Desktop\CPA\bin\Debug\SFJ.exe
-C:\Users\pedro\Desktop\CPA\bin\Debug\SFJ.pdb
-C:\Users\pedro\Desktop\CPA\obj\Debug\SFJ.Form1.resources
-C:\Users\pedro\Desktop\CPA\obj\Debug\SFJ.Properties.Resources.resources
-C:\Users\pedro\Desktop\CPA\obj\Debug\CPA.csproj.GenerateResource.cache
-C:\Users\pedro\Desktop\CPA\obj\Debug\SFJ.exe
-C:\Users\pedro\Desktop\CPA\obj\Debug\SFJ.pdb
-C:\Users\pedro\Desktop\CPA\obj\Debug\CPA.csprojAssemblyReference.cache
