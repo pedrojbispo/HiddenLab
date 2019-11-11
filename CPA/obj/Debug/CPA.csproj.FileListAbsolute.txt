@@ -7,3 +7,12 @@ C:\Users\pedro\Desktop\CPA\bin\Debug\CPA.exe
 C:\Users\pedro\Desktop\CPA\bin\Debug\CPA.pdb
 C:\Users\pedro\Desktop\CPA\obj\Debug\CPA.exe
 C:\Users\pedro\Desktop\CPA\obj\Debug\CPA.pdb
+D:\#Projects\Programming\Project\HiddenLab\CPA\bin\Debug\CPA.exe.config
+D:\#Projects\Programming\Project\HiddenLab\CPA\bin\Debug\CPA.exe
+D:\#Projects\Programming\Project\HiddenLab\CPA\bin\Debug\CPA.pdb
+D:\#Projects\Programming\Project\HiddenLab\CPA\obj\Debug\CPA.csprojAssemblyReference.cache
+D:\#Projects\Programming\Project\HiddenLab\CPA\obj\Debug\SFJ.Form1.resources
+D:\#Projects\Programming\Project\HiddenLab\CPA\obj\Debug\CPA.Properties.Resources.resources
+D:\#Projects\Programming\Project\HiddenLab\CPA\obj\Debug\CPA.csproj.GenerateResource.cache
+D:\#Projects\Programming\Project\HiddenLab\CPA\obj\Debug\CPA.exe
+D:\#Projects\Programming\Project\HiddenLab\CPA\obj\Debug\CPA.pdb
