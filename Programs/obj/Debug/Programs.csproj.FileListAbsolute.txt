@@ -1,9 +1,0 @@
-C:\Users\pedro\Desktop\Programs\bin\Debug\Programs.exe.config
-C:\Users\pedro\Desktop\Programs\bin\Debug\Programs.exe
-C:\Users\pedro\Desktop\Programs\bin\Debug\Programs.pdb
-C:\Users\pedro\Desktop\Programs\obj\Debug\Programs.csprojAssemblyReference.cache
-C:\Users\pedro\Desktop\Programs\obj\Debug\Programs.Form1.resources
-C:\Users\pedro\Desktop\Programs\obj\Debug\Programs.Properties.Resources.resources
-C:\Users\pedro\Desktop\Programs\obj\Debug\Programs.csproj.GenerateResource.cache
-C:\Users\pedro\Desktop\Programs\obj\Debug\Programs.exe
-C:\Users\pedro\Desktop\Programs\obj\Debug\Programs.pdb
