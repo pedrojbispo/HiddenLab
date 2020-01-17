@@ -1,0 +1,45 @@
+#include <iostream> 
+using namespace std;
+
+//Metodo de Cifra
+string cifrador(string text, int s)
+{
+	string c = "";
+	for (int i = 0; i < text.length(); i++)
+	{
+		if (isupper(text[i])) //Verificar se texto está em maiúscula
+			c += char(int(text[i] + s - 65) % 26 + 65);
+		else
+			c += char(int(text[i] + s - 97) % 26 + 97);
+	}
+	return c;
+}
+
+string decifrador(string text2, int s)
+{
+	string d = "";
+	for (int i = 0; i < text2.length(); i++)
+	{
+		if (isupper(text2[i])) //Verificar se texto está em maiúscula
+			d += char(int(text2[i] + s - 65) % 26 + 65);
+		else
+			d += char(int(text2[i] + s - 97) % 26 + 97);
+	}
+	return d;
+}
+
+//Programa Principal
+int main()
+{
+	string text;
+	int x;
+	cout << "Introduza o texto que quer cifrar.\n";
+	cin >> text;
+	cout << "Introduza o avanco alfabetico.\n";
+	cin >> x;
+	cout << "Texto : '" << text << "' Com Avanco de: " << x;
+	cout << "\nTexto Cifrado: " << cifrador(text, x);
+	string text2 = cifrador(text, x);
+	cout << "\nTexto Decifrado: " << decifrador(text2,26-x);
+	return 0;
+}
