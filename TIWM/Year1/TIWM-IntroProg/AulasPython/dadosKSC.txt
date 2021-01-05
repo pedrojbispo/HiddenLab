@@ -1,0 +1,5 @@
+Pafil Preta|8|0|15
+Pafil Azul|8|0|15
+PT20 Rosa|8|1|25
+PT20 Vermelha|8|0|25
+SK Bolinhas|8|0|15

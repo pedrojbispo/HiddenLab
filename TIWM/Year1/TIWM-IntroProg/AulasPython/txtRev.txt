@@ -1,0 +1,15 @@
+39126|Ana Machado|7|0|0
+31943|António Ferreira|7|0|0
+39121|Bruno Martins|17|0|0
+33447|Daniel Lopes|6|0|0
+37746|Denilson Araújo|8|0|0
+32900|Diogo Teixeira|11|0|0
+35080|Diogo Silva|18|0|0
+39398|Eduardo Azevedo|7|0|0
+39621|Hugo Seabra|8|0|0
+32468|João Vieira|12|0|0
+38424|Miguel André|16|0|0
+35242|Pedro Bispo|9|0|0
+31822|Pedro Marques|18|0|0
+35340|Pedro Pereira|19|0|0
+34077|Samuel Pereira|20|0|0
