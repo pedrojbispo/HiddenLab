@@ -15,5 +15,5 @@ def into():
 
 
 into()
-time.sleep(5)
+time.sleep(1)
 bin.clear()

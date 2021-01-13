@@ -18,7 +18,7 @@ def clear():
 
 
 print("Welcome to Bin.py, please wait...")
-time.sleep(5)
+time.sleep(1)
 print("=" * 40, "System Information", "=" * 40)
 uname = platform.uname()
 print(f"System: {uname.system}")
@@ -28,5 +28,5 @@ print(f"Version: {uname.version}")
 print(f"Machine: {uname.machine}")
 print(f"Processor: {uname.processor}")
 print("=" * 100)
-time.sleep(5)
+time.sleep(1)
 clear()
