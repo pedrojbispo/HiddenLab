@@ -3,7 +3,6 @@ import bin
 import loader
 import time
 
-
 class Adicionar:
     def __init__(self):
         subop = ""
@@ -13,67 +12,54 @@ class Adicionar:
             print("\tSubMenu - Adicionar")
             print("\t\t1- Turma")
             print("\t\t2- Aluno")
-            print("\t\t3- Disciplina")
-            print("\t\t4- Pauta")
+            print("\t\t3- Associar Aluno a uma turma")
+            print("\t\t4- Disciplina")
+            print("\t\t5- Notas")
             print("\t\t0- Exit")
             print("\n")
             print("=" * 70)
             subop = input("Opção: ")
 
             if subop == "1":
-
-                ID_Turma = int(input("Qual o id da turma"))
-                Letra_turma = input("Qual a letra da turma? ")
-                database.turma.update({ID_Turma: [Letra_turma]})
-                database.nested_pauta['turma']['ID_Turma']=ID_Turma
-                database.nested_pauta['turma']['Letra_Turma'] = Letra_turma
-
+                lturma = database.Turma()
+                lturma.letra = input("Qual é a Letra da Turma: ")
+                database.turma.append(lturma)
+                print("Turma: ",database.turma[0].letra)
                 time.sleep(3)
                 bin.clear()
 
             elif subop == "2":
 
-                ID_Aluno = input("Qual o id do aluno?  ")
-                Nome = input("Qual o nome do aluno? ")
-                Nasc = input("Qual a sua data de nascimento? ")
-                Nacionalidade = input("Qual a sua nacionalidade? ")
-
-
-                database.nested_pauta['aluno']['ID_Aluno']=ID_Aluno
-                database.nested_pauta['aluno']['Nome'] = Nome
-                database.aluno.update({ID_Aluno: [Nome, Nasc, Nacionalidade]})
+                laluno = database.Alunos()
+                laluno.nome = input("Qual é o Nome do aluno: ")
+                laluno.aturma = input("Qual é a Turma do aluno: ")
+                database.aluno.append(laluno)
+                print(database.aluno[0].aturma,database.aluno[0].nome)
                 time.sleep(3)
                 bin.clear()
 
             elif subop == "3":
 
-                ID_Disciplina=int(input("Qual é o id da disciplina? "))
-                Nome_disciplina = input("Qual o nome da disciplina? ")
-
-
-                database.nested_pauta['disciplina']['ID_Disciplina']=ID_Disciplina
-                database.nested_pauta['disciplina']['Nome_disciplina'] = Nome_disciplina
-                database.disciplina.update({ID_Disciplina : [Nome_disciplina]})
-
+                #Turma|Aluno
                 time.sleep(3)
                 bin.clear()
 
             elif subop == "4":
 
+                for i in database.disciplina:
+                    nota1=int(input("Introduza a primeira nota: "))
+                    nota2 = int(input("Introduza a segunda nota: "))
+                    nota_final=(nota1+nota2)/2
 
-                M1 = int(input("Qual é a primeira nota? "))
-                M2 = int(input("Qual é a segunda nota? "))
-                nota_final = (M1 + M2) / 2
-                if M1 < 6 or M2 < 6:
-                    isAproved = False
-                elif nota_final >= 9.5:
-                    isAproved = True
+                    isAproved=True
+                    if nota1<6 or nota2 <6 or nota_final<9.5:
+                        isAproved=False
+                    else:
+                        isAproved=True
+
+                    database.disciplina.update({})
 
 
-                database.nested_pauta['disciplina']['M1'] = M1
-                database.nested_pauta['disciplina']['M2'] = M2
-                database.nested_pauta['disciplina']['NotaFinal'] = nota_final
-                database.nested_pauta['disciplina']['isAproved'] = isAproved
 
                 time.sleep(3)
                 bin.clear()

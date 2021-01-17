@@ -3,7 +3,6 @@ import bin
 import loader
 import time
 
-
 class Mostrar:
     def __init__(self):
         subop = ""
@@ -23,17 +22,25 @@ class Mostrar:
             subop = input("Opção: ")
 
             if subop == "1":
-                print("YO")
+                for i in database.turma:
+                    print(i , ":" , database.turma[i][0])
+
+
             elif subop == "2":
                 print("YO")
+                bin.clear()
             elif subop == "3":
                 print("YO")
+                bin.clear()
             elif subop == "4":
                 print("YO")
+                bin.clear()
             elif subop == "5":
                 print("YO")
+                bin.clear()
             elif subop == "6":
                 print("YO")
+                bin.clear()
             elif subop == "0":
                 print("Voltando para o Menu")
                 bin.clear()
