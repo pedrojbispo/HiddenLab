@@ -15,9 +15,8 @@ class Mostrar:
             print("\t\t2- Mostar Turma...")
             print("\t\t3- Mostar Aluno")
             print("\t\t4- Mostar Alunos")
-            print("\t\t5- Mostar Medias dos Alunos")
-            print("\t\t6- Mostar Medias dos Alunos de uma turma por disciplina")
-            print("\t\t7- Mostar Medias Total da turma")
+            print("\t\t5- Mostar Media do Aluno por disciplina")
+            print("\t\t6- Mostar Medias de todos os Alunos de uma turma por disciplina")
             print("\t\t0- Menu")
             print("\n")
             print("=" * 70)
@@ -26,6 +25,14 @@ class Mostrar:
             if subop == "1":
                 print("YO")
             elif subop == "2":
+                print("YO")
+            elif subop == "3":
+                print("YO")
+            elif subop == "4":
+                print("YO")
+            elif subop == "5":
+                print("YO")
+            elif subop == "6":
                 print("YO")
             elif subop == "0":
                 print("Voltando para o Menu")
