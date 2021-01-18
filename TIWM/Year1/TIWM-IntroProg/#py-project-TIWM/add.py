@@ -20,8 +20,8 @@ class Adicionar:
             subop = input("Opção: ")
 
             if subop == "1":
-                lturma = database.Alunos()
-                lturma.aturma = input("Qual é a Letra da Turma: ")
+                lturma = database.Turma()
+                lturma.letra = input("Qual é a Letra da Turma: ")
                 database.turma.append(lturma)
 
                 time.sleep(3)
@@ -30,12 +30,19 @@ class Adicionar:
             elif subop == "2":
 
                 laluno = database.Alunos()
+                associaraluno = database.AlunoTurma()
+                lturma=database.Turma()
                 laluno.nome = input("Qual é o Nome do aluno: ")
-                laluno.aturma = input("Qual é a Turma do aluno: ")
 
-                if laluno.aturma == lturma.aturma:
-                    database.turma.append(laluno.aturma)
-                    database.turma.append(laluno.nome)
+                laluno.nome=associaraluno.aluno
+                if database.turma != 0:
+
+                    database.MostrarTurmas()
+                    lturma.letra=input("Qual a letra da turma onde quer adicionar: ")
+                    lturma.letra=associaraluno.turma
+
+                database.turma.append(lturma.letra)
+                database.turma.append(laluno.nome)
 
 
 

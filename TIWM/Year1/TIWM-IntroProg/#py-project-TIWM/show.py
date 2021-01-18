@@ -3,6 +3,7 @@ import bin
 import loader
 import time
 
+
 class Mostrar:
     def __init__(self):
         subop = ""
@@ -22,7 +23,7 @@ class Mostrar:
             subop = input("Opção: ")
 
             if subop == "1":
-                    print("Turmas: ",database.turma[1])
+                database.MostrarTurmas()
 
 
             elif subop == "2":
