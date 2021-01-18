@@ -5,6 +5,7 @@ import platform
 import sys
 import psutil
 import subprocess as sp
+import database
 
 
 # -----------------#
@@ -15,6 +16,14 @@ def clear():
         tmp = sp.call('cls', shell=True)  # Windows call
     else:
         tmp = sp.call('clear', shell=True) # *nix call
+
+def TurmaMostrar():
+    cont = 1
+    print()
+    for i in database.turma:
+        print(str(cont) + "-> " + str(i))
+        cont+=1
+    print()
 
 
 print("Welcome to Bin.py, please wait...")

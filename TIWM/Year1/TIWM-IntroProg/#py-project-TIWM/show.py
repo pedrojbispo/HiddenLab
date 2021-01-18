@@ -22,8 +22,7 @@ class Mostrar:
             subop = input("Opção: ")
 
             if subop == "1":
-                for i in database.turma:
-                    print(i , ":" , database.turma[i][0])
+                    print("Turmas: ",database.turma[1])
 
 
             elif subop == "2":
