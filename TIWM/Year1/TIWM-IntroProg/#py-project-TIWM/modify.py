@@ -11,24 +11,21 @@ class Editar:
             loader.banner()
             print("=" * 70, "\n")
             print("\tSubMenu - Editar")
-            print("\t\t1- Turma")
-            print("\t\t2- Aluno")
-            print("\t\t3- Disciplina")
-            print("\t\t4- Pauta") 
+            print("\t\t1- Pauta")
             print("\t\t0- Exit")
             print("\n")
             print("=" * 70)
             subop = input("Opção: ")
 
             if subop == "1":
-                editar_turma=int(input("Qual a turma que quer editar? "))
-            elif subop == "2":
-                editar_aluno=int(input("Qual o aluno que quer editar? "))
-            elif subop == "3":
-                editar_disciplina=int(input("Qual a disciplina que quer editar? "))  
-            elif subop == "4":
-                editar_pauta=int(input("Qual a pauta que quer editar? "))
+                if not database.listaturmas:
+                    print("Lista Vazia")
+                else:
+                    print("to-do")
+                    time.sleep(3)
+                    bin.clear()
             elif subop == "0":
+                bin.clear()
                 print("Voltando para o Menu")
                 bin.clear()
             else:

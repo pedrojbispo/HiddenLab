@@ -9,7 +9,7 @@ def LerFicheiro(fichName):
 
         while linha != "":
             vL = linha.split('|')
-            varpauta = Pauta(vL[0], (vL[1]), (vL[2]), int(vL[3]), int(vL[4]), int(vL[5]), int(vL[6]), (vL[7]))
+            varpauta = Pauta(vL[0], (vL[1]), (vL[2]), int(vL[3]), int(vL[4]), int(vL[5]), (vL[6]), str(vL[7]))
             listapauta.append(varpauta)
             linha = f.readline()
 
@@ -21,6 +21,31 @@ def GuardarFicheiro(fichName):
         f.write(i.StringFicheiro())
     f.close()
 
+def Mostraturma():
+    cont = 1
+    print()
+    for i in listaturmas:
+        print(str(cont) + "-> " + str(i))
+        cont+=1
+    print()
+
+
+def Mostraaluno():
+    cont = 1
+    print()
+    for i in listaalunos:
+        print(str(cont) + "-> " + str(i))
+        cont+=1
+    print()
+
+def Mostradisciplina():
+    cont = 1
+    print()
+    for i in listadisciplinas:
+        print(str(cont) + "-> " + str(i))
+        cont+=1
+    print()
+
 def Mostrapauta():
     cont = 1
     print()
@@ -29,13 +54,6 @@ def Mostrapauta():
         cont+=1
     print()
 
-def Mostraturma():
-    cont = 1
-    print()
-    for i in listaturmas:
-        print(str(cont) + "-> " + str(i))
-        cont+=1
-    print()
 
 class Turmas():
     def __init__(self, turmaid =0, listaturma=""):
@@ -73,7 +91,7 @@ class Disciplinas():
         return self.discnome
 
 class Pauta():
-    def __init__(self, turma="", aluno="", disciplina="", m1=0, m2=0, m3=0, notafinal=0,aprovado=""):
+    def __init__(self, turma="", aluno="", disciplina="", m1=0, m2=0, m3=0, notafinal=0,aprovado=" "):
         self.turma = turma
         self.aluno = aluno
         self.disciplina = disciplina
@@ -106,38 +124,15 @@ caminho = "dadosKSC.txt"
 LerFicheiro(caminho)
 
 while opc != "0":
-    print("########## KEEP SAFE COVID-19: ##########")
     print("\n\n-- MENU --\n")
-    print("1) Mostar Máscaras")
-    print("2) Editar Máscara")
-    print("3) Gerir Máscaras")
+    print("1) Gerir")
+    print("2) Mostar Pauta")
+    print("3) Editar")
 
     print("\n0) Sair")
     opc = input("Opção: ")
 
     if opc == "1":
-        Mostrapauta()
-    elif opc == "2":
-        print("########## KEEP SAFE COVID-19: ##########")
-        print("############ Editar Máscaras ############")
-
-        print("1) Add Lavagem Máscara")
-        opcE = input("Opção: ")
-
-        if opcE == "1":
-            try:
-                Mostrapauta()
-                opcM = int(input("Qual a máscara que pretende actualizar? "))
-
-                listapauta[opcM-1].AdicionarNotas()
-                print("Máscara actualizada com sucesso!!!")
-                print(listapauta[opcM-1].nome + " -> " + str(listapauta[opcM-1].numLav) + " lavagens")
-            
-                Mostrapauta()
-            except:
-                print("Opção Inválida!!!!!")
-
-    elif opc == "3":
         print("############ Gerir Turmas, Alunos, Pauta############")
         print("1) Adicionar Turma")
         print("2) Adicionar Aluno")
@@ -145,9 +140,9 @@ while opc != "0":
         print("4) Adicionar Pauta")
         print("########################")
         print("5) Remover Turma")
-        print("5) Remover Aluno")
-        print("5) Remover Disciplina")
-        print("5) Remover Pauta")
+        print("6) Remover Aluno")
+        print("7) Remover Disciplina")
+        print("8) Remover Pauta")
 
         opcG = input("Opção: ")
 
@@ -173,13 +168,13 @@ while opc != "0":
             varpauta = Pauta()
             print("\n\n--- Adicionar Pauta ---")
             Mostraturma()
-            varpauta.turma = int(input("Turma: "))
+            varpauta.turma = input("Turma: ")
             varpauta.aluno = input("Aluno: ")
             varpauta.disciplina = input("Disciplina: ")
             varpauta.m1 = int(input("M1: "))
             varpauta.m2 = int(input("M2: "))
             varpauta.m3 = int(input("M3: "))
-            varpauta.notafinal = ((varpauta.m1*0.45) + (varpauta.m2*0.45) + (varpauta.m3*0.10)) / 3
+            varpauta.notafinal = (varpauta.m1 + varpauta.m2 + varpauta.m3) / 3
             if varpauta.m1 < 6 or varpauta.m2 < 6:
                      varpauta.aprovado = "Reprovado"
             elif varpauta.notafinal >= 9.5:
@@ -188,9 +183,42 @@ while opc != "0":
             listapauta.append(varpauta)
 
         elif opcG == "5":
+            Mostraturma()
+            remov = int(input("Qual a turma que pretende remover? "))
+            listaturmas.pop(remov-1)
+        elif opcG == "6":
+            listaalunos()
+            remov = int(input("Qual a aluno que pretende remover? "))
+            listaalunos.pop(remov - 1)
+        elif opcG == "7":
+            Mostradisciplina()
+            remov = int(input("Qual a displina que pretende remover? "))
+            listapauta.pop(remov-1)
+        elif opcG == "8":
             Mostrapauta()
             remov = int(input("Qual a pauta que pretende remover? "))
             listapauta.pop(remov-1)
 
+    elif opc == "2":
+        Mostrapauta()
+
+    elif opc == "3":
+        print("############ Editar ############")
+
+        print("1) Add Lavagem Máscara")
+        opcE = input("Opção: ")
+
+        if opcE == "1":
+            try:
+                Mostrapauta()
+                opcM = int(input("Qual a máscara que pretende actualizar? "))
+
+                listapauta[opcM-1].AdicionarNotas()
+                print("Máscara actualizada com sucesso!!!")
+                print(listapauta[opcM-1].nome + " -> " + str(listapauta[opcM-1].numLav) + " lavagens")
+            
+                Mostrapauta()
+            except:
+                print("Opção Inválida!!!!!")
 
 GuardarFicheiro(caminho)

@@ -20,82 +20,56 @@ class Adicionar:
             subop = input("Opção: ")
 
             if subop == "1":
-                lturma = database.Turma()
-                lturma.letra = input("Qual é a Letra da Turma: ")
-                database.turma.append(lturma)
-
+                bin.clear()
+                varturmas = database.Turmas()
+                varturmas.listaturma = input("Turma: ")
+                database.listaturmas.append(varturmas)
                 time.sleep(3)
                 bin.clear()
 
             elif subop == "2":
-
-                laluno = database.Alunos()
-                associaraluno = database.AlunoTurma()
-                lturma=database.Turma()
-                laluno.nome = input("Qual é o Nome do aluno: ")
-
-                laluno.nome=associaraluno.aluno
-                if database.turma != 0:
-
-                    database.MostrarTurmas()
-                    lturma.letra=input("Qual a letra da turma onde quer adicionar: ")
-                    lturma.letra=associaraluno.turma
-
-                database.turma.append(lturma.letra)
-                database.turma.append(laluno.nome)
-
-
-
+                bin.clear()
+                varalunos = database.Alunos()
+                varalunos.anome = input("Nome do Aluno: ")
+                database.listaalunos.append(varalunos)
                 time.sleep(3)
                 bin.clear()
 
             elif subop == "3":
-                ldisciplina = database.Alunos()
-                ldisciplina.disciplina = input("Qual é a disciplina que quer adicionar: ")
-
-                database.turma.append(ldisciplina.disciplina)
-                print("Turma: " ,database.turma[1], "Aluno: ",database.turma[2], "Disciplina: ",database.turma[3])
+                bin.clear()
+                vardisc = database.Disciplinas()
+                vardisc.discnome = input("Disciplina: ")
+                database.listadisciplinas.append(vardisc)
                 time.sleep(3)
                 bin.clear()
 
             elif subop == "4":
+                bin.clear()
+                varpauta = database.Pauta()
+                bin.Mostraturma()
+                varpauta.turma = input("Turma: ")
+                varpauta.aluno = input("Aluno: ")
+                varpauta.disciplina = input("Disciplina: ")
+                varpauta.m1 = int(input("M1: "))
+                varpauta.m2 = int(input("M2: "))
+                varpauta.m3 = int(input("M3: "))
+                varpauta.notafinal = (varpauta.m1 + varpauta.m2 + varpauta.m3) / 3
+                if varpauta.m1 < 6 or varpauta.m2 < 6:
+                    varpauta.aprovado = "Reprovado"
+                elif varpauta.notafinal >= 9.5:
+                    varpauta.aprovado = "Aprovado"
 
-                for i in database.turma:
-                    nota1=database.Alunos()
-                    nota2 = database.Alunos()
-                    nota3 = database.Alunos()
-                    notafinal = database.Alunos()
-                    aprovado = database.Alunos()
-
-                    nota1.m1=int(input("Introduza a primeira nota: "))
-                    nota2.m2 = int(input("Introduza a segunda nota: "))
-                    nota3.m3 = int(input("Introduza a terceira nota: "))
-                    notafinal.notafinal=(nota1.m1+nota2.m2+nota3.m3)/3
-
-                    aprovado.aprovado=True
-                    if nota1.m1 < 6 or nota2.m2 < 6 or nota3.m3 < 6 or notafinal.notafinal < 9.5:
-                        aprovado.aprovado=False
-                    else:
-                        aprovado.aprovado=True
-
-                    database.turma.append(nota1.m1)
-                    database.turma.append(nota2.m2)
-                    database.turma.append(nota3.m3)
-                    database.turma.append(notafinal.notafinal)
-                    database.turma.append(aprovado.aprovado)
-
-
-
-
-
+                database.listapauta.append(varpauta)
                 time.sleep(3)
                 bin.clear()
 
             elif subop == "0":
-                print("Voltando para o menu")
+                bin.clear()
+                bin.GuardarFicheiro(bin.caminho)
+                print("Voltando para o menu...")
                 bin.clear()
             else:
                 bin.clear()
-                print("Sintaxe Invalida. Por favor Escolha um numero do menu")
+                print("Sintaxe Invalida. Por favor Escolha um numero do menu.")
                 time.sleep(3)
                 bin.clear()

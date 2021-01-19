@@ -21,18 +21,56 @@ class Apagar:
             subop = input("Opção: ")
 
             if subop == "1":
-                rm_turma=int(input("Qual a turma que quer remover? "))
+                bin.clear()
+                bin.Mostraturma()
+                if not database.listaturmas:
+                    print("Lista Vazia")
+                else:
+                    remov = int(input("Qual a turma que pretende remover? "))
+                    database.listaturmas.pop(remov - 1)
+                time.sleep(3)
+                bin.clear()
+
             elif subop == "2":
-                rm_aluno=int(input("Qual o aluno que quer remover? "))
+                bin.clear()
+                bin.Mostraaluno()
+                if not database.listaalunos:
+                    print("Lista Vazia")
+                else:
+                    remov = int(input("Qual a aluno que pretende remover? "))
+                    database.listaalunos.pop(remov - 1)
+                time.sleep(3)
+                bin.clear()
+
             elif subop == "3":
-                rm_disciplina=int(input("Qual a disciplina que quer remover? "))
+                bin.clear()
+                bin.Mostradisciplina()
+                if not database.listadisciplinas:
+                    print("Lista Vazia")
+                else:
+                    remov = int(input("Qual a displina que pretende remover? "))
+                    database.listadisciplinas.pop(remov - 1)
+                time.sleep(3)
+                bin.clear()
+
             elif subop == "4":
-                rm_pauta=int(input("Qual a pauta que quer remover? "))
+                bin.clear()
+                bin.Mostrapauta()
+                if not database.listaalunos:
+                    print("Lista Vazia")
+                else:
+                    remov = int(input("Qual a pauta que pretende remover? "))
+                    database.listapauta.pop(remov - 1)
+                time.sleep(3)
+                bin.clear()
+
             elif subop == "0":
-                print("Voltando para o Menu")
+                bin.clear()
+                bin.GuardarFicheiro(bin.caminho)
+                print("Voltando para o Menu...")
                 bin.clear()
             else:
                 bin.clear()
-                print("Sintaxe Invalida. Por favor Escolha um numero do menu")
+                print("Sintaxe Invalida. Por favor Escolha um numero do menu.")
                 time.sleep(3)
                 bin.clear()
