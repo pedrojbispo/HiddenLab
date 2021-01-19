@@ -19,6 +19,11 @@ import loader
 import time
 # -----------------#
 
+# bin.LerFicheiro(bin.txtturmas)
+# bin.LerFicheiro(bin.txtalunos)
+# bin.LerFicheiro(bin.txtdisciplinas)
+bin.LerFicheiro(bin.txtpauta)
+
 
 class Menu:
     op = " "
@@ -30,6 +35,7 @@ class Menu:
         print("\t\t2- Mostrar...")
         print("\t\t3- Editar...")
         print("\t\t4- Remover...")
+        print("\t\t5- Guardar...")
         print("\t\t0- Exit")
         print("\n", "=" * 70)
         op = input("Opção: ")
@@ -46,6 +52,14 @@ class Menu:
         elif op == "4":
             bin.clear()
             remove.Apagar()
+        elif op == "5":
+            # bin.GuardarFicheiro(bin.txtturmas)
+            # bin.GuardarFicheiro(bin.txtalunos)
+            # bin.GuardarFicheiro(bin.txtdisciplinas)
+            bin.GuardarFicheiro(bin.txtpauta)
+            print("Gravação dos dados completa...")
+            time.sleep(3)
+            bin.clear()
         elif op == "0":
             bin.clear()
             print("Programa Terminado.")

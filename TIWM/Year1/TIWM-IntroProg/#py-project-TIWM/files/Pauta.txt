@@ -1,0 +1,2 @@
+a|ze|mat|15|15|15|15.0|Aprovado
+a|ana|mat|7|7|7|7.0|Reprovado

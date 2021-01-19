@@ -6,12 +6,10 @@ listapauta = []
 
 
 class Turmas():
-    def __init__(self, turmaid =0, listaturma=""):
-        self.turmaid = turmaid
+    def __init__(self, listaturma=""):
         self.listaturma = listaturma
 
     def Adicionarturma(self):
-        self.turmaid =+1
         self.listaturma = self.listaturma
 
     def StringFicheiro(self):
@@ -23,6 +21,9 @@ class Turmas():
 class Alunos():
     def __init__(self, anome=""):
         self.anome = anome
+
+    def EditarNome(self):
+        self.anome = input("Nome:")
 
     def StringFicheiro(self):
         return self.anome + "\n"
@@ -51,10 +52,35 @@ class Pauta():
         self.notafinal = notafinal
         self.aprovado = aprovado
 
-    def AdicionarNotas(self):
-        self.m1 = self.m1
-        self.m2 = self.m2
-        self.m3 = self.m3
+    def EditarNotas(self):
+        self.m1 = None
+        self.m2 = None
+        self.m3 = None
+        while self.m1 == None and self.m2 == None and self.m3 == None:
+            try:
+                self.m1 = int(input("M1: "))
+                self.m2 = int(input("M2: "))
+                self.m3 = int(input("M3: "))
+                if self.m1 < 0 or self.m2 < 0 or self.m3 < 0 or self.m1 > 20 or self.m2 > 20 or self.m3 > 20:
+                    print("Erro: Valores introduzidos invalidos. Numeros positivos e inferiores a 20.")
+                    self.m1 = None
+                    self.m2 = None
+                    self.m3 = None
+            except ValueError:
+                print("Erro: Valores introduzidos invalidos. Numeros positivos e inferiores a 20.")
+
+    def UpdateNotas(self):
+        self.notafinal = (self.m1 + self.m2 + self.m3) / 3
+        if self.m1 < 6 or self.m2 < 6 or self.m3 < 6:
+            self.aprovado = "Reprovado"
+        elif self.notafinal < 9.5:
+            self.aprovado = "Reprovado"
+        else:
+            self.aprovado = "Aprovado"
+
+    def ShowAprovados(self):
+        if self.aprovado == "Aprovado":
+            print(self.turma + "|" + str(self.aluno) + "|" + str(self.disciplina) + "|" + str(self.m1) + "|" + str(self.m2) + "|" + str(self.m3) + "|" + str(self.notafinal) + "|" + str(self.aprovado))
 
     def StringFicheiro(self):
         return self.turma + "|" + str(self.aluno) + "|" + str(self.disciplina) + "|" + str(self.m1) + "|" + str(self.m2) + "|" + str(self.m3) + "|" + str(self.notafinal) + "|" + str(self.aprovado) + "\n"

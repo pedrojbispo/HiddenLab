@@ -3,7 +3,6 @@ import bin
 import loader
 import time
 
-
 class Apagar:
     def __init__(self):
         subop = ""
@@ -56,7 +55,7 @@ class Apagar:
             elif subop == "4":
                 bin.clear()
                 bin.Mostrapauta()
-                if not database.listaalunos:
+                if not database.listapauta:
                     print("Lista Vazia")
                 else:
                     remov = int(input("Qual a pauta que pretende remover? "))
@@ -66,8 +65,8 @@ class Apagar:
 
             elif subop == "0":
                 bin.clear()
-                bin.GuardarFicheiro(bin.caminho)
                 print("Voltando para o Menu...")
+                time.sleep(2)
                 bin.clear()
             else:
                 bin.clear()

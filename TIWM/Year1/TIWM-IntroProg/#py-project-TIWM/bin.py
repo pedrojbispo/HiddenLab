@@ -14,7 +14,7 @@ def clear():
     if platform.system() == "Windows":
         tmp = sp.call('cls', shell=True)  # Windows call
     else:
-        tmp = sp.call('clear', shell=True)  # *nix call
+        tmp = sp.call('clear', shell=True)  # unix call
 
 
 def LerFicheiro(fichName):
@@ -24,7 +24,13 @@ def LerFicheiro(fichName):
 
         while linha != "":
             vL = linha.split('|')
+            # varturma = database.Turmas(vL[0])
+            # varaluno = database.Alunos(vL[0])
+            # vardisciplina = database.Disciplinas(vL[0])
             varpauta = database.Pauta(vL[0], (vL[1]), (vL[2]), int(vL[3]), int(vL[4]), int(vL[5]), (vL[6]), str(vL[7]))
+            # database.listaturmas.append(varturma)
+            # database.listaalunos.append(varaluno)
+            # database.listadisciplinas.append(vardisciplina)
             database.listapauta.append(varpauta)
             linha = f.readline()
 
@@ -33,12 +39,25 @@ def LerFicheiro(fichName):
 
 def GuardarFicheiro(fichName):
     f = open(fichName, "w")
+    # for i in database.listaturmas:
+    #     f.write(i.StringFicheiro())
+    #
+    # for i in database.listaalunos:
+    #     f.write(i.StringFicheiro())
+    #
+    # for i in database.listadisciplinas:
+    #     f.write(i.StringFicheiro())
+
     for i in database.listapauta:
         f.write(i.StringFicheiro())
+
     f.close()
 
 
-caminho = "dadosKSC.txt"
+# txtturmas = "files/turmas.txt"
+# txtalunos = "files/alunos.txt"
+# txtdisciplinas = "files/disciplinas.txt"
+txtpauta = "files/Pauta.txt"
 
 
 def Mostraturma():
