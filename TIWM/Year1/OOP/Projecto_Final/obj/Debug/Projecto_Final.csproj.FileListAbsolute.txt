@@ -1,0 +1,3 @@
+D:\#Estudos\#HiddenLab\TIWM\Year1\OOP\Projecto_Final\obj\Debug\Projecto_Final.Properties.Resources.resources
+D:\#Estudos\#HiddenLab\TIWM\Year1\OOP\Projecto_Final\obj\Debug\Projecto_Final.csproj.GenerateResource.cache
+D:\#Estudos\#HiddenLab\TIWM\Year1\OOP\Projecto_Final\obj\Debug\Projecto_Final.csproj.CoreCompileInputs.cache
