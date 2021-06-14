@@ -1,3 +1,0 @@
-Telmo;tbento;aaa;7;5;2021;Normal
-Rui;rB;aaaddd;12;7;1994;Silver
-hhh;hhh;hhh;24;5;2021;Gold
