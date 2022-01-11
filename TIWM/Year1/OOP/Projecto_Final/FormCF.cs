@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 
-namespace AulaHeranca
+namespace Projecto_Final
 {
     public partial class FormCF : Form
     {
@@ -58,17 +58,6 @@ namespace AulaHeranca
 
                 StreamWriter sw = new StreamWriter("Clientes.txt",true);
                 sw.WriteLine(c.TextoFicheiro());
-                sw.Close();
-            }
-            else
-            {
-                Funcionario f = new Funcionario(textBoxNome.Text, textBoxEmail.Text, textBoxCidade.Text, 
-                    dateTimePicker1.Value.Day, dateTimePicker1.Value.Month, dateTimePicker1.Value.Year, 
-                    comboBoxTF.Text, double.Parse(textBoxOrdenado.Text));
-
-
-                StreamWriter sw = new StreamWriter("Funcionarios.txt", true);
-                sw.WriteLine(f.TextoFicheiro());
                 sw.Close();
             }
 

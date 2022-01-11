@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AulaHeranca
+namespace Projecto_Final
 {
     class Data
     {

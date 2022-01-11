@@ -1,3 +1,12 @@
-D:\#Estudos\#HiddenLab\TIWM\Year1\OOP\Projecto_Final\obj\Debug\Projecto_Final.Properties.Resources.resources
 D:\#Estudos\#HiddenLab\TIWM\Year1\OOP\Projecto_Final\obj\Debug\Projecto_Final.csproj.GenerateResource.cache
 D:\#Estudos\#HiddenLab\TIWM\Year1\OOP\Projecto_Final\obj\Debug\Projecto_Final.csproj.CoreCompileInputs.cache
+D:\#Estudos\#HiddenLab\TIWM\Year1\OOP\Projecto_Final\obj\Debug\Projecto_Final.csprojAssemblyReference.cache
+D:\#Estudos\#HiddenLab\TIWM\Year1\OOP\Projecto_Final\obj\Debug\Projecto_Final.Form1.resources
+D:\#Estudos\#HiddenLab\TIWM\Year1\OOP\Projecto_Final\obj\Debug\Projecto_Final.AboutBox1.resources
+D:\#Estudos\#HiddenLab\TIWM\Year1\OOP\Projecto_Final\obj\Debug\Projecto_Final.FormCF.resources
+D:\#Estudos\#HiddenLab\TIWM\Year1\OOP\Projecto_Final\bin\Debug\Projecto_Final.exe.config
+D:\#Estudos\#HiddenLab\TIWM\Year1\OOP\Projecto_Final\bin\Debug\Projecto_Final.exe
+D:\#Estudos\#HiddenLab\TIWM\Year1\OOP\Projecto_Final\bin\Debug\Projecto_Final.pdb
+D:\#Estudos\#HiddenLab\TIWM\Year1\OOP\Projecto_Final\obj\Debug\Projecto_Final.Properties.Resources.resources
+D:\#Estudos\#HiddenLab\TIWM\Year1\OOP\Projecto_Final\obj\Debug\Projecto_Final.exe
+D:\#Estudos\#HiddenLab\TIWM\Year1\OOP\Projecto_Final\obj\Debug\Projecto_Final.pdb

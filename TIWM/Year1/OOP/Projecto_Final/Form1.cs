@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 
-namespace AulaHeranca
+namespace Projecto_Final
 {
     public partial class Form1 : Form
     {
@@ -28,20 +28,7 @@ namespace AulaHeranca
             {
                 auxLinha = linha.Split('|');
 
-                listBoxProdutos.Items.Add(new Produto(auxLinha[0], double.Parse(auxLinha[1])));
-
-                linha = sr.ReadLine();
-            }
-            sr.Close();
-
-            sr = new StreamReader("Funcionarios.txt");
-            linha = sr.ReadLine();
-
-            while (linha != null)
-            {
-                auxLinha = linha.Split(';');
-
-                comboBoxFunc.Items.Add(new Funcionario(auxLinha[0], auxLinha[1], auxLinha[2], int.Parse(auxLinha[3]), int.Parse(auxLinha[4]), int.Parse(auxLinha[5]), auxLinha[6], double.Parse(auxLinha[7])));
+                listBoxProdutos.Items.Add(new Games(auxLinha[0], double.Parse(auxLinha[1])));
 
                 linha = sr.ReadLine();
             }
@@ -67,7 +54,7 @@ namespace AulaHeranca
         {
             if(listBoxProdutos.SelectedItem != null)
             {
-                Produto pSelect = listBoxProdutos.SelectedItem as Produto;
+                Games pSelect = listBoxProdutos.SelectedItem as Games;
 
                 listBoxCarrinho.Items.Add(pSelect);
                 AtualizarValorCarrinho();
@@ -104,7 +91,7 @@ namespace AulaHeranca
 
             panelCBCliente.BackColor = Color.Transparent;
 
-            foreach (Produto p in listBoxCarrinho.Items)
+            foreach (Games p in listBoxCarrinho.Items)
             {
                 valor += p.GetPreco();
             }

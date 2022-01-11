@@ -4,30 +4,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AulaHeranca
+namespace Projecto_Final
 {
-    class Pessoa
+    class Players
     {
         private string nome;
         private string email;
         private string cidade;
         private Data dataNasc;
 
-        public Pessoa()
+        public Players()
         {
             nome = "";
             email = "";
             cidade = "";
             dataNasc = new Data();
         }
-        public Pessoa(string nNome, string nEmail, string nCidade, Data nDataNAsc)
+        public Players(string nNome, string nEmail, string nCidade, Data nDataNAsc)
         {
             nome = nNome;
             email = nEmail;
             cidade = nCidade;
             dataNasc = nDataNAsc;
         }
-        public Pessoa(string nNome, string nEmail, string nCidade, int nDia, int nMes, int nAno)
+        public Players(string nNome, string nEmail, string nCidade, int nDia, int nMes, int nAno)
         {
             nome = nNome;
             email = nEmail;

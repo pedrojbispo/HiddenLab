@@ -7,7 +7,7 @@ using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AulaHeranca
+namespace Projecto_Final
 {
     partial class AboutBox1 : Form
     {
@@ -101,5 +101,10 @@ namespace AulaHeranca
             }
         }
         #endregion
+
+        private void okButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

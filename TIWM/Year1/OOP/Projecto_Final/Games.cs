@@ -4,19 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AulaHeranca
+namespace Projecto_Final
 {
-    class Produto
+    class Games
     {
         private string nome;
         private double preco;
 
-        public Produto()
+        public Games()
         {
             nome = "";
             preco = 0;
         }
-        public Produto(string nNome, double nPreco)
+        public Games(string nNome, double nPreco)
         {
             nome = nNome;
             preco = nPreco;

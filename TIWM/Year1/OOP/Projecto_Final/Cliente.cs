@@ -4,17 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AulaHeranca
+namespace Projecto_Final
 {
-    class Cliente : Pessoa
+    class Cliente : Players
     {
         private string tipo;
-        private List<Produto> produtosFav;
+        private List<Games> produtosFav;
 
         public Cliente()
         {
             tipo = "";
-            produtosFav = new List<Produto>();
+            produtosFav = new List<Games>();
         }
         public Cliente(string nNome, string nEmail, string nCidade, int nDia, int nMes, int nAno, string nTipo)
         {
@@ -23,7 +23,7 @@ namespace AulaHeranca
             SetCidade(nCidade);
             SetDataNasc(nDia,nMes,nAno);
             tipo = nTipo;
-            produtosFav = new List<Produto>();
+            produtosFav = new List<Games>();
         }
 
         public void SetTipo(string nTipo)
@@ -34,11 +34,11 @@ namespace AulaHeranca
         {
             return tipo;
         }
-        public List<Produto> GetProdutosFav()
+        public List<Games> GetProdutosFav()
         {
             return produtosFav;
         }
-        public void AdicionarProdFav(Produto p)
+        public void AdicionarProdFav(Games p)
         {
             produtosFav.Add(p);
         }
